@@ -16,7 +16,6 @@ class Config(object):
     return self.name
 
   def set_param(self,param,value):
-
     if param not in self.params:
       print 'Error:',param,'is not a valid parameter'
     else:
@@ -124,10 +123,14 @@ class Config(object):
     f.write('-fetch:speed            '+str(self.params['fetch_speed'])+'\n')
     f.write('-bpred                  '+self.params['bpred']+'\n')
     f.write('-bpred:bimod            '+str(self.params['bpred_bimod'])+'\n')
-    f.write('-bpred:2lev             '+str(self.params['bpred_2lev_l1size'])+' '+str(self.params['bpred_2lev_l2size'])+' '+str(self.params['bpred_2lev_hist_size'])+' '+str(self.params['bpred_2lev_xor'])+'\n')
+    f.write('-bpred:2lev             '+str(self.params['bpred_2lev_l1size'])+' '+
+                                       str(self.params['bpred_2lev_l2size'])+' '+
+                                       str(self.params['bpred_2lev_hist_size'])+' '+
+                                       str(self.params['bpred_2lev_xor'])+'\n')
     f.write('-bpred:comb             '+str(self.params['bpred_comb'])+'\n')
     f.write('-bpred:ras              '+str(self.params['bpred_ras'])+'\n')
-    f.write('-bpred:btb              '+str(self.params['bpred_btb_num_sets'])+' '+str(self.params['bpred_btb_associativity'])+'\n')
+    f.write('-bpred:btb              '+str(self.params['bpred_btb_num_sets'])+' '+
+                                       str(self.params['bpred_btb_associativity'])+'\n')
     f.write('# -bpred:spec_update    <null>'+'\n')
     f.write('-decode:width           '+str(self.params['decode_width'])+'\n')
     f.write('-issue:width            '+str(self.params['issue_width'])+'\n')
@@ -136,20 +139,41 @@ class Config(object):
     f.write('-commit:width           '+str(self.params['commit_width'])+'\n')
     f.write('-ruu:size               '+str(self.params['ruu_size'])+'\n')
     f.write('-lsq:size               '+str(self.params['lsq_size'])+'\n')
-    f.write('-cache:dl1              '+self.params['cache_dl1_name']+':'+str(self.params['cache_dl1_nsets'])+':'+str(self.params['cache_dl1_bsize'])+':'+str(self.params['cache_dl1_assoc'])+':'+str(self.params['cache_dl1_repl'])+'\n')
+    f.write('-cache:dl1              '+self.params['cache_dl1_name']+':'+
+                                       str(self.params['cache_dl1_nsets'])+':'+
+                                       str(self.params['cache_dl1_bsize'])+':'+
+                                       str(self.params['cache_dl1_assoc'])+':'+
+                                       str(self.params['cache_dl1_repl'])+'\n')
     f.write('-cache:dl1lat           '+str(self.params['cache_dl1lat'])+'\n')
-    f.write('-cache:dl2              '+self.params['cache_dl2_name']+':'+str(self.params['cache_dl2_nsets'])+':'+str(self.params['cache_dl2_bsize'])+':'+str(self.params['cache_dl2_assoc'])+':'+str(self.params['cache_dl2_repl'])+'\n')
+    f.write('-cache:dl2              '+self.params['cache_dl2_name']+':'+
+                                       str(self.params['cache_dl2_nsets'])+':'+
+                                       str(self.params['cache_dl2_bsize'])+':'+
+                                       str(self.params['cache_dl2_assoc'])+':'+
+                                       str(self.params['cache_dl2_repl'])+'\n')
     f.write('-cache:dl2lat           '+str(self.params['cache_dl2lat'])+'\n')
-    f.write('-cache:il1              '+self.params['cache_il1_name']+':'+str(self.params['cache_il1_nsets'])+':'+str(self.params['cache_il1_bsize'])+':'+str(self.params['cache_il1_assoc'])+':'+str(self.params['cache_il1_repl'])+'\n')
+    f.write('-cache:il1              '+self.params['cache_il1_name']+':'+
+                                       str(self.params['cache_il1_nsets'])+':'+
+                                       str(self.params['cache_il1_bsize'])+':'+
+                                       str(self.params['cache_il1_assoc'])+':'+
+                                       str(self.params['cache_il1_repl'])+'\n')
     f.write('-cache:il1lat           '+str(self.params['cache_il1lat'])+'\n')
     f.write('-cache:il2              '+self.params['cache_il2_name']+'\n')
     f.write('-cache:il2lat           '+str(self.params['cache_il2lat'])+'\n')
     f.write('-cache:flush            '+self.params['cache_flush']+'\n')
     f.write('-cache:icompress        '+self.params['cache_icompress']+'\n')
-    f.write('-mem:lat                '+str(self.params['mem_lat_first_chunk'])+' '+str(self.params['mem_lat_inter_chunk'])+'\n')
+    f.write('-mem:lat                '+str(self.params['mem_lat_first_chunk'])+' '+
+                                       str(self.params['mem_lat_inter_chunk'])+'\n')
     f.write('-mem:width              '+str(self.params['mem_width'])+'\n')
-    f.write('-tlb:itlb               '+self.params['tlb_itlb_name']+':'+str(self.params['tlb_itlb_nsets'])+':'+str(self.params['tlb_itlb_bsize'])+':'+str(self.params['tlb_itlb_assoc'])+':'+str(self.params['tlb_itlb_repl'])+'\n')
-    f.write('-tlb:dtlb               '+self.params['tlb_dtlb_name']+':'+str(self.params['tlb_dtlb_nsets'])+':'+str(self.params['tlb_dtlb_bsize'])+':'+str(self.params['tlb_dtlb_assoc'])+':'+str(self.params['tlb_dtlb_repl'])+'\n')
+    f.write('-tlb:itlb               '+self.params['tlb_itlb_name']+':'+
+                                       str(self.params['tlb_itlb_nsets'])+':'+
+                                       str(self.params['tlb_itlb_bsize'])+':'+
+                                       str(self.params['tlb_itlb_assoc'])+':'+
+                                       str(self.params['tlb_itlb_repl'])+'\n')
+    f.write('-tlb:dtlb               '+self.params['tlb_dtlb_name']+':'+
+                                       str(self.params['tlb_dtlb_nsets'])+':'+
+                                       str(self.params['tlb_dtlb_bsize'])+':'+
+                                       str(self.params['tlb_dtlb_assoc'])+':'+
+                                       str(self.params['tlb_dtlb_repl'])+'\n')
     f.write('-tlb:lat                '+str(self.params['tlb_lat'])+'\n')
     f.write('-res:ialu               '+str(self.params['res_ialu'])+'\n')
     f.write('-res:imult              '+str(self.params['res_imult'])+'\n')
