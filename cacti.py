@@ -5,6 +5,7 @@ from mechanize import ParseResponse, urlopen
 from HTMLParser import HTMLParser
 
 class Form_Response_Parser(HTMLParser):
+
   def handle_data(self, data):
     data = data.strip()
     if (data[:11] == 'Access time'):
@@ -94,7 +95,3 @@ class Cacti(object):
     Cache_Access_Time = self.parser.data
     print cache_params[0],'Access Time:',Cache_Access_Time,'ns'
     return Cache_Access_Time
-
-
-
-
