@@ -1,0 +1,8 @@
+# Compiled Python Source Files
+*.pyc
+
+# Generated Config Files
+*.config
+
+# Office Temp Files
+~$*
